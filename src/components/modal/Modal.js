@@ -19,7 +19,7 @@ const Modal = (props)=> {
             setSecond(1200-time);
         }else{
             setMinute(Math.floor(n));
-            setSecond((minute*60)-time);
+            setSecond((1200-time)-(minute*60));
         }
         
     })
