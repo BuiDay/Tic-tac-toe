@@ -5,8 +5,9 @@ import { calculateWinner } from './calculate';
 
 const Body = ({setIsWinner}) => {
 
-    const [n, setN] = useState(20);
-    const [board, setBoard] = useState(Array(n*n).fill(null));
+    const [n, setN] = useState(30);
+
+    const [board, setBoard] = useState(Array(30*30).fill(null));
     const [number, setNumber] = useState([0])
     const [next, setNext] = useState(true);
     const [winner, setWinner] = useState ("");
@@ -30,6 +31,24 @@ const Body = ({setIsWinner}) => {
         }  
     })
 
+    useEffect(()=>{
+       
+            const x = window.innerWidth
+            const n = Math.floor((x-210)/35);
+            if(n > 30){
+                setBoard(Array(30*30).fill(null));
+                setN(30);
+            }else if (n<8){
+                setBoard(Array(8*8).fill(null));
+                setN(8);
+            }else{
+                setBoard(Array(n*n).fill(null));
+                setN(n)
+            }
+           
+        
+    },[window.innerWidth])
+
     return (
         <>
             <Board cells={board} n={n} onClick={handleClick}/>
@@ -39,8 +58,4 @@ const Body = ({setIsWinner}) => {
 
 export default Body;
 
- // useEffect(()=>{
-    //     window.addEventListener("resize",()=>{
-    //         console.log(window.innerWidth)
-    //     })
-    // })
+ 

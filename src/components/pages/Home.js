@@ -52,6 +52,14 @@ const Home = () => {
         }
       }, [time,play,isWinner]);
 
+      useEffect(()=>{
+        window.addEventListener('resize',()=>{
+            setMinute(20);
+            setSecond(0);
+            setTime(1200);
+        })
+      },)
+
     return (
         <>
             {
