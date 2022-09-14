@@ -15,6 +15,7 @@ const Board = (props) => {
             props.cells.map((item,index)=>{
                 return(
                     <Square key={index} 
+                            next={props.next}
                             value ={item} 
                             onClick={()=>{props.onClick(index)}}  
                             className = {item === "O" ? "is-O" : item === "X" ? "is-X" : ''}

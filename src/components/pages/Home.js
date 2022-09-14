@@ -66,7 +66,7 @@ const Home = () => {
                 play ? (
                 <>  
                     <Header second={second} minute={minute}  time={time} name1={name1} name2={name2} /> 
-                    <Body setIsWinner={setIsWinner} />
+                    <Body setIsWinner={setIsWinner}  name1={name1} name2={name2} />
                     {isWinner ? <Modal name1={name1} name2={name2} isWinner= {isWinner} onClick = {handleRestart} time={time} /> :""}
                 </>)  : (
                 <div className='body'>

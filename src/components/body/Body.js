@@ -3,7 +3,7 @@ import Board from './Board';
 import './Body.css'
 import { calculateWinner } from './calculate';
 
-const Body = ({setIsWinner}) => {
+const Body = ({setIsWinner, name1, name2}) => {
 
     const [n, setN] = useState(30);
 
@@ -11,6 +11,7 @@ const Body = ({setIsWinner}) => {
     const [number, setNumber] = useState([0])
     const [next, setNext] = useState(true);
     const [winner, setWinner] = useState ("");
+    const [name, setName] = useState (name1);
 
     const handleClick = (index) =>{
         const boardCopy = [...board];
@@ -19,6 +20,7 @@ const Body = ({setIsWinner}) => {
         setBoard(boardCopy);
         setNext(!next);
         setNumber(oldArray => [...oldArray, index])
+        setName(next ? name2 : name1)
     };
   
     useEffect(()=>{
@@ -34,7 +36,7 @@ const Body = ({setIsWinner}) => {
     useEffect(()=>{
        
             const x = window.innerWidth
-            const n = Math.floor((x-210)/35);
+            const n = Math.floor((x-400)/35);
             if(n > 30){
                 setBoard(Array(30*30).fill(null));
                 setN(30);
@@ -49,8 +51,10 @@ const Body = ({setIsWinner}) => {
         
     },[window.innerWidth])
 
+
     return (
-        <>
+        <>  
+            <p className="playing">Đến lượt: {name}</p>
             <Board cells={board} n={n} onClick={handleClick}/>
         </>
     );
