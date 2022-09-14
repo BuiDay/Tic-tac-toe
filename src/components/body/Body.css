@@ -1,0 +1,23 @@
+
+.squares{
+    width: 35px;
+    height: 35px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 35px;
+    border: 1px solid white;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.squares.is-O{
+    color:#F3453F;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.squares.is-X{
+    color:#545851;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+
